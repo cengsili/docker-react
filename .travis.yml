@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t siliceng/docker-react -f Dockerfile.dev .
+  - docker build -t cengsili/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run siliceng/docker-react npm run test -- -- coverage
+  - docker run cengsili/docker-react npm run test -- -- coverage
