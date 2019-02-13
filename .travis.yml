@@ -3,20 +3,7 @@ services:
   - docker
 
 before_install:
-<<<<<<< HEAD
   - docker build -t cengsili/docker-react .
-=======
-  - docker build -t cengsili/docker-react -f .
->>>>>>> Update .travis.yml
 
 script:
-<<<<<<< HEAD
   - docker run cengsili/docker-react npm run test -- --coverage
-=======
-  - docker run cengsili/docker-react npm run test -- -- coverage
-
-# deploy: 
-#   provider: elasticbeanstalk
-#   region: "tr"
-#   app : docker
->>>>>>> App.test.js
