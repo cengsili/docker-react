@@ -1,7 +1,7 @@
 FROM node:11.4.0 as builder
 
 WORKDIR '/app'
-COPY package.json .
+COPY package*.json ./
 RUN npm install
 
 COPY . .
