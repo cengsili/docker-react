@@ -1,13 +1,17 @@
-FROM node:11.4.0 as builder
+# base image
+FROM node:11.4.0
 
-WORKDIR '/app'
-COPY package*.json ./
-RUN npm install
+# set working directory
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 
-COPY . .
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-RUN npm run build
+# install and cache app dependencies
+COPY package.json /usr/src/app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@2.1.3 -g --silent
 
-FROM nginx
-COPY --from=builder /app/builder /usr/share/nginx/html
-
+# start app
+CMD ["npm", "start" ]
