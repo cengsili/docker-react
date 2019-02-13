@@ -1,4 +1,10 @@
 sudo: required
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
 services:
   - docker
 
@@ -6,4 +12,4 @@ before_install:
   - docker build -t cengsili/docker-react .
 
 script:
-  - docker run cengsili/docker-react npm run test -- --coverage
+  - npm test
